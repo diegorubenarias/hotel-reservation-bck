@@ -1,7 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const sequelize = require('./models/index');
+const sequelize = require('./config/database');
+const usuarioRoutes = require('./routes/User.routes');
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(express.json());
 app.get('/', (req, res) => res.send('Backend funcionando correctamente!'));
 
 // Sincroniza la base de datos
+app.use('/user', usuarioRoutes);
+
 sequelize.sync().then(() => {
   console.log('Base de datos conectada!');
   app.listen(process.env.PORT || 3000, () =>
