@@ -10,7 +10,7 @@ app.use(cors());
 app.use(express.json());
 
 // Rutas de prueba
-app.get('/', (req, res) => res.send('Backend funcionando correctamente!'));
+app.get('/', (req, res) => res.status(201).json({ message: 'backend conectado exitosamente!' }));
 
 
 app.use('/user', usuarioRoutes);
