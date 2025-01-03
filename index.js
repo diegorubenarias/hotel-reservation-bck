@@ -22,3 +22,4 @@ sequelize.sync().then(() => {
     console.log(`Servidor corriendo en puerto ${process.env.PORT || 3000}`)
   );
 });
+
