@@ -3,6 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
 const usuarioRoutes = require('./routes/User.routes');
+const categoryRouter = require('./routes/Category.routes');
 
 const app = express();
 
@@ -14,9 +15,10 @@ app.get('/', (req, res) => res.status(201).json({ message: 'backend conectado ex
 
 
 app.use('/user', usuarioRoutes);
+app.use('/category', categoryRouter);
 
 // Sincroniza la base de datos
-sequelize.sync().then(() => {
+sequelize.sync({ alter: true }).then(() => {
   console.log('Base de datos conectada!');
   app.listen(process.env.PORT || 3000, () =>
     console.log(`Servidor corriendo en puerto ${process.env.PORT || 3000}`)
