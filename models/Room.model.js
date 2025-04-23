@@ -20,7 +20,7 @@ const Room = sequelize.define('Room', {
         allowNull: false,
     },
 }, {
-    tableName: 'rooms',
+    tableName: 'rooms', // table name in database
     timestamps: true, // Adds createdAt and updatedAt fields
 });
 
