@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
       const rooms = await Room.findAll();
       res.json(rooms);
     } catch (error) {
-      res.status(500).json({ error: 'Error al obtener las rooms' });
+      res.status(500).json({ error: 'Error al obtener las rooms ' + error.message });
     }
   });
 
