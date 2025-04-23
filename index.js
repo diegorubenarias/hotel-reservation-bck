@@ -4,6 +4,7 @@ const cors = require('cors');
 const sequelize = require('./config/database');
 const usuarioRoutes = require('./routes/User.routes');
 const categoryRouter = require('./routes/Category.routes');
+const roomsRouter = require('./routes/Rooms.routes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.get('/', (req, res) => res.status(201).json({ message: 'backend conectado ex
 
 app.use('/user', usuarioRoutes);
 app.use('/category', categoryRouter);
+app.use('/rooms', roomsRouter);
 
 // Sincroniza la base de datos
 sequelize.sync({ alter: true }).then(() => {
