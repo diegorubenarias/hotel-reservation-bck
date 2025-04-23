@@ -19,6 +19,10 @@ const Room = sequelize.define('Room', {
         type: DataTypes.ENUM('executive', 'studio', 'loft suite', 'family comfort'),
         allowNull: false,
     },
+    building: {
+        type: DataTypes.ENUM('beHause', 'dessau6', 'dessau4', 'miro3'),
+        allowNull: false,
+    },
 }, {
     tableName: 'rooms', // table name in database
     timestamps: true, // Adds createdAt and updatedAt fields
