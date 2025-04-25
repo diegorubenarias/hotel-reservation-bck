@@ -26,7 +26,13 @@ const Room = sequelize.define('Room', {
     capacity: {
         type: DataTypes.INTEGER,
         allowNull: true,
-    }
+    },
+    futureAllocations: [
+        {
+            type: DataTypes.JSON,
+            allowNull: true,
+        },
+    ]
 }, {
     tableName: 'rooms', // table name in database
     timestamps: true, // Adds createdAt and updatedAt fields
