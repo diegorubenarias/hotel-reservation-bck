@@ -18,6 +18,7 @@ app.get('/', (req, res) => res.status(201).json({ message: 'backend conectado ex
 app.use('/user', usuarioRoutes);
 app.use('/category', categoryRouter);
 app.use('/rooms', roomsRouter);
+app.use('/config/camas', require('./routes/Cama.route'));
 
 // Sincroniza la base de datos
 sequelize.sync({ alter: true }).then(() => {
