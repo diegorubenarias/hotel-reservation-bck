@@ -16,7 +16,7 @@ const Room = sequelize.define('Room', {
         defaultValue: false,
     },
     type: {
-        type: DataTypes.ENUM('executive', 'studio', 'loft suite', 'family comfort'),
+        type: DataTypes.STRING, //DataTypes.ENUM('executive', 'studio', 'loft suite', 'family comfort'),
         allowNull: false,
     },
     building: {
