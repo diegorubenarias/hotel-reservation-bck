@@ -15,4 +15,4 @@ const Cama = sequelize.define('Cama', {
 });
 
 
-module.exports = Category;
+module.exports = Cama
