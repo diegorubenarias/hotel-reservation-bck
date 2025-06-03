@@ -14,5 +14,5 @@ const Cama = sequelize.define('Cama', {
   }
 });
 
-
-module.exports = Cama
+// test
+module.exports = Cama 
