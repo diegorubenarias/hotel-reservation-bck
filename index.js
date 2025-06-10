@@ -2,12 +2,12 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const sequelize = require('./config/database');
-//const usuarioRoutes = require('./routes/User.routes');
+const usuarioRoutes = require('./routes/User.routes');
 const categoryRouter = require('./routes/Category.routes');
 const roomsRouter = require('./routes/Room.routes');
 
 
-const usuarioRoutes = require('./routes/usuarios.routes');
+//const usuarioRoutes = require('./routes/usuarios.routes');
 const reservaRoutes = require('./routes/reservas.routes');
 const habitacionRoutes = require('./routes/habitaciones.routes');
 const facturaRoutes = require('./routes/facturas.routes');
