@@ -20,7 +20,7 @@ const Room = sequelize.define('Room', {
         allowNull: false,
     },
     building: {
-        type: DataTypes.ENUM('beHaus', 'dessau6', 'dessau4', 'miro3'),
+        type: DataTypes.ENUM('beHause', 'dessau6', 'dessau4', 'miro3'),
         allowNull: false,
     },
     capacity: {
