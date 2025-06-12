@@ -4,13 +4,14 @@ const router = express.Router();
 const Room = require('../models/Room.model');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const Reserva = require('../models/Reserva');
 
 
 
 
 router.get('/', async (req, res) => {
     try {
-      const rooms = await Room.findAll();
+      const rooms = await Room.findAll({include: {model: Reserva, as: 'reserva'}}); // Assuming futureAllocations is the association name
       res.json(rooms);
     } catch (error) {
       res.status(500).json({ error: 'Error al obtener las rooms ' + error.message });

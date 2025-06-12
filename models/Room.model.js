@@ -27,6 +27,14 @@ const Room = sequelize.define('Room', {
         type: DataTypes.INTEGER,
         allowNull: true,
     },
+    reserva: {
+        type: DataTypes.INTEGER,
+        references: {
+            model: 'Reservas', // Name of the reservations table
+            key: 'id'
+        },
+        allowNull: true, // Allow null if no reservation is linked
+    }
     
 }, {
     tableName: 'rooms', // table name in database

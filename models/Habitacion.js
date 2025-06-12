@@ -6,7 +6,14 @@ const Habitacion = sequelize.define('Habitacion', {
   tipo: DataTypes.STRING,
   precioPorNoche: DataTypes.FLOAT,
   descripcion: DataTypes.TEXT,
-  disponible: DataTypes.BOOLEAN
+  disponible: DataTypes.BOOLEAN,
+  reservas: [ {
+    type: DataTypes.INTEGER,
+    references: {
+      model: 'Reservas', // Nombre de la tabla de reservas
+      key: 'id'
+    }
+  }]
 });
 
 module.exports = Habitacion;
