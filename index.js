@@ -19,7 +19,12 @@ const { authenticateToken } = require('./middlewares/auth.middleware');
 
 const app = express();
 
-app.use(cors());
+// Configuración de CORS para permitir solicitudes desde cualquier origen
+app.use(cors({
+  origin: '*', // Cambia esto a tu dominio en producción
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
 app.use(express.json());
 
 // Rutas de prueba
@@ -38,6 +43,11 @@ app.use('/user', usuarioRoutes);
 app.use('/category', categoryRouter);
 app.use('/rooms', roomsRouter);
 app.use('/config/camas', require('./routes/Cama.route'));
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Sincroniza la base de datos
 sequelize.sync({ alter: true }).then(() => {
